@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../dubbo-parent.iml" filepath="$PROJECT_DIR$/../dubbo-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../dubbo-service-api/dubbo-service-api.iml" filepath="$PROJECT_DIR$/../dubbo-service-api/dubbo-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../dubbo-service-user/dubbo-service-user.iml" filepath="$PROJECT_DIR$/../dubbo-service-user/dubbo-service-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../dubbo-web/dubbo-web.iml" filepath="$PROJECT_DIR$/../dubbo-web/dubbo-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/redis-client.iml" filepath="$PROJECT_DIR$/redis-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../spring-redis/spring-redis.iml" filepath="$PROJECT_DIR$/../spring-redis/spring-redis.iml" />
+    </modules>
+  </component>
+</project>

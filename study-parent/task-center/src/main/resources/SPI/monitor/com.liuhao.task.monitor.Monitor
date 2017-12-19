@@ -1,0 +1,1 @@
+redis=com.liuhao.task.monitor.impl.RedisMonitor

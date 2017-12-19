@@ -1,0 +1,2 @@
+impl=com.liuhao.spi.test.SPIImpl
+large=com.liuhao.spi.test.SPILargeImpl

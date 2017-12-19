@@ -1,0 +1,7 @@
+打包工具使用须知
+ eclipse.bat 构建maven工程
+ eclipsePurge.bat 清除本地安装的jar包，然后再构建maven工程
+ packageJar.bat 打包并安装到本地
+ deployJar.bat 打包并发布到私服
+ ShowDependencyTree.bat 查看依赖树
+注意packageJar.bat会都用maven-install-plugin把当前工程的打的jar包安装到local repo，当你点击eclipse.bat更新时更新的是这些包在local repo的版本，要更新到私服上的jar包需要点击eclipsePurge.bat,一般情况下eclipse.bat/packageJar.bat就足够应付我们使用了。

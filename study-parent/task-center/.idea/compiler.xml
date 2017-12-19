@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="redis-client (2)" />
+        <module name="spring-redis (1)" />
+        <module name="spring-redis (2)" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="common-util" target="1.5" />
+      <module name="dubbo-parent" target="1.6" />
+      <module name="dubbo-service-api" target="1.6" />
+      <module name="dubbo-service-user" target="1.6" />
+      <module name="dubbo-web" target="1.6" />
+      <module name="redis-client" target="1.6" />
+      <module name="redis-client (1)" target="1.6" />
+      <module name="redis-client (2)" target="1.5" />
+      <module name="spring-mybatis" target="1.5" />
+      <module name="spring-redis" target="1.5" />
+      <module name="spring-redis (1)" target="1.6" />
+      <module name="spring-redis (2)" target="1.5" />
+      <module name="study-parent" target="1.5" />
+      <module name="task-center" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

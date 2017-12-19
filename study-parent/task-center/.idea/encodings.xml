@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/.." charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../dubbo-service-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../dubbo-service-user" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../dubbo-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../redis-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../spring-redis" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../study-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../study-parent/common-util" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../study-parent/redis-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../study-parent/spring-mybatis" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../study-parent/spring-redis" charset="UTF-8" />
+  </component>
+</project>

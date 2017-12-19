@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sharding>
+	<!-- table哪个表,入参一定要包含column字段,class分表的策略,state策略的state -->
+	<strategy>
+	<!-- table分表的table -->
+		<table>t_user</table>
+		<!-- 通过哪个字段来分表 -->
+		<column>userId</column>
+		<!-- 分表的策略 -->
+		<tableStrategy>
+			<clazz>com.liuhao.mybatis.sharding.strategy.impl.HashShardingStrategy</clazz>
+			<state>4</state>
+		</tableStrategy>
+		<!-- 分库策略 -->
+		<dbStrategy>
+			<clazz>com.liuhao.mybatis.sharding.strategy.impl.ModShardingStrategy</clazz>
+			<state>3</state>
+		</dbStrategy>
+	</strategy>
+
+</sharding>

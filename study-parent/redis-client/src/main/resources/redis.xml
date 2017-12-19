@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+	<redis>
+		<name>single</name>
+		<node>
+			<host>127.0.0.1</host>
+			<port>6379</port>
+		</node>
+		<timeout>2000</timeout>
+		<maxAttempts>5</maxAttempts>
+		<maxTotal>100</maxTotal>
+		<password></password>
+		<maxIdle>20</maxIdle>
+		<minIdle>10</minIdle>
+		<maxWaitMillis>3000</maxWaitMillis>
+		<blockWhenExhausted>true</blockWhenExhausted>
+		<testOnBorrow>false</testOnBorrow>
+		<testOnReturn>false</testOnReturn>
+		<testWhileIdle>true</testWhileIdle>
+		<minEvictableIdleTimeMillis>60000</minEvictableIdleTimeMillis>
+		<timeBetweenEvictionRunsMillis>30000</timeBetweenEvictionRunsMillis>
+		<numTestsPerEvictionRun>-1</numTestsPerEvictionRun>
+	</redis>
+	<redis>
+		<name>__cluster__</name>
+		<node><host>192.168.56.136</host><port>7111</port></node>
+		<node><host>192.168.56.136</host><port>7114</port></node>
+		<node><host>192.168.56.135</host><port>7112</port></node>
+		<node><host>192.168.56.135</host><port>7115</port></node>
+		<node><host>192.168.56.134</host><port>7113</port></node>
+		<node><host>192.168.56.134</host><port>7116</port></node>
+<!-- 		<node><host>127.0.0.1</host><port>6319</port></node> -->
+<!-- 		<node><host>127.0.0.1</host><port>6329</port></node> -->
+<!-- 		<node><host>127.0.0.1</host><port>6339</port></node> -->
+<!-- 		<node><host>127.0.0.1</host><port>6349</port></node> -->
+<!-- 		<node><host>127.0.0.1</host><port>6359</port></node> -->
+<!-- 		<node><host>127.0.0.1</host><port>6369</port></node> -->
+		<timeout>2000</timeout>
+		<maxAttempts>5</maxAttempts>
+		<maxTotal>100</maxTotal>
+		<password></password>
+		<maxIdle>20</maxIdle>
+		<minIdle>10</minIdle>
+		<maxWaitMillis>3000</maxWaitMillis>
+		<blockWhenExhausted>true</blockWhenExhausted>
+		<testOnBorrow>false</testOnBorrow>
+		<testOnReturn>false</testOnReturn>
+		<testWhileIdle>true</testWhileIdle>
+		<minEvictableIdleTimeMillis>60000</minEvictableIdleTimeMillis>
+		<timeBetweenEvictionRunsMillis>30000</timeBetweenEvictionRunsMillis>
+		<numTestsPerEvictionRun>-1</numTestsPerEvictionRun>
+	</redis>
+</list>

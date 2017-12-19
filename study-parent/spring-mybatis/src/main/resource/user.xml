@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bean>
+	<user>
+		<id>1</id>
+		<userName>liuhao1</userName>
+		<userAge>21</userAge>
+		<userAddress>sz</userAddress>
+		<company>9</company>
+	</user>
+	<user>
+		<id>2</id>
+		<userName>liuhao2</userName>
+		<userAge>22</userAge>
+		<userAddress>cs</userAddress>
+		<company>93</company>
+	</user>
+	<user>
+		<id>3</id>
+		<userName>liuhao3</userName>
+		<userAge>23</userAge>
+		<userAddress>yy</userAddress>
+		<company>94</company>
+	</user>
+</bean>

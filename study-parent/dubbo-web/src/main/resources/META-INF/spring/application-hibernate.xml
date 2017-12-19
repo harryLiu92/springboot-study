@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	
+	<!-- Hiberante配置文件 -->
+	<context:property-placeholder location="classpath:db.properties"/>
+	<!-- hibernate整合 -->
+	<!-- 数据库连接配置 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" >
+		<property name="user" value="${jdbc.user}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+		<property name="driverClass" value="${jdbc.driverClass}"></property>
+		<property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
+		<property name="initialPoolSize" value="${jdbc.initialPoolSize}"></property>
+		<property name="maxPoolSize" value="${jdbc.maxPoolSize}"></property>
+	</bean>
+	
+	<!-- 配置Hibernate的SessionFactory实例 通过Spring提供的LocalSessionFactory进行配置 -->
+	<bean id = "sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" >
+		<!-- 配置数据源 -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- 配置Hibernate配置文件的位置 
+		<property name="configLocation" value="classpath:hibernate.cfg.xml" />
+		-->
+		<!-- 不使用Hibernate配置文件 -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+					
+				<!-- 二级缓存默认打开，这里只是显示打开一下 -->
+				<prop key="cache.use_second_level_cache">true</prop>
+		
+				<!-- hibernte 4.3.10 -->
+				<prop key="cache.region.factory_class">
+					org.hibernate.cache.ehcache.EhCacheRegionFactory
+				</prop>
+		
+				<!-- 打开查询缓存	 -->
+				<prop key="cache.use_query_cache">true</prop>
+		
+				<!-- 强制Hibernate以更人性化的格式将数据存入二级缓存 -->
+				<prop key="hibernate.cache.use_structured_entries">true</prop>
+		
+				<!-- Hibernate将收集有助于性能调节的统计数据 -->
+				<prop key="hibernate.generate_statistics">true</prop>
+		
+				<!-- 是否优化第二级缓存操作，最小化缓存写入操作（适用与集群缓存） -->
+				<prop key="cache.use_minmal_puts">true</prop>
+			</props>
+		</property>
+		
+		<!-- 配置hibernate的entity类的位置 ,可以使用通配符
+		<property name="mappingLocations"
+				value="classpath:com/liuhao/spring/hibernate/entity/*.hbm.xml" />
+		-->
+		<!-- 扫描entity包 -->
+		<property name="packagesToScan">
+			<list>
+				<value>com.liuhao.dubbo.web.bean</value>
+			</list>
+		</property>
+		
+	</bean>
+	<!-- 配置Spring的声明式事务 -->
+	<!-- 1. 配置事务管理器 -->
+	<bean id = "transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"  />
+	</bean>
+	
+	<!-- 2. 配置事务通知，需要事务管理器 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="find*" read-only="true" />
+			<tx:method name="*" />
+		</tx:attributes>
+	</tx:advice>
+	
+	<!-- 3. 配置事务切点， 并把切点和事务属性关联起来  配置在接口上，
+			记住：事务配置在service接口上，因为struts2使用conversion注解以后，
+			Action是struts2管理，不是spring，导致SpringIOC容器根本找不到Action，因此后序的代码出错-->
+<!-- 	<aop:config> -->
+<!-- 		<aop:pointcut expression="execution(* com.liuhao.ssh.service.*.*(..))"  -->
+<!-- 			id="txPointcut"/> -->
+<!-- 			<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/> -->
+<!-- 	</aop:config> -->
+	
+	<!-- 注解配置事务属性 
+	如果transaction-manager属性为"transactionManager"可省略
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	-->
+</beans>
