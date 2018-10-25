@@ -1,0 +1,50 @@
+{
+  "hints": [],
+  "properties": [
+    {
+      "sourceType": "com.liuhao.springboot.demo.configurationProperties.UserBeanProperties",
+      "name": "user.id",
+      "defaultValue": 0,
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.liuhao.springboot.demo.configurationProperties.UserProperties",
+      "name": "user.id",
+      "defaultValue": 0,
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.liuhao.springboot.demo.configurationProperties.UserBeanProperties",
+      "name": "user.password",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.liuhao.springboot.demo.configurationProperties.UserProperties",
+      "name": "user.password",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.liuhao.springboot.demo.configurationProperties.UserBeanProperties",
+      "name": "user.user-name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.liuhao.springboot.demo.configurationProperties.UserProperties",
+      "name": "user.user-name",
+      "type": "java.lang.String"
+    }
+  ],
+  "groups": [
+    {
+      "sourceType": "com.liuhao.springboot.demo.configurationProperties.UserConfigurationPropertiesController",
+      "sourceMethod": "getUserBeanProperties()",
+      "name": "user",
+      "type": "com.liuhao.springboot.demo.configurationProperties.UserBeanProperties"
+    },
+    {
+      "sourceType": "com.liuhao.springboot.demo.configurationProperties.UserProperties",
+      "name": "user",
+      "type": "com.liuhao.springboot.demo.configurationProperties.UserProperties"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+spring:
+  profiles:
+    active: dev
+---
+spring:
+  profiles: dev
+server:
+  port: 8090
+---
+spring:
+  profiles: prod
+server:
+  port: 8091
+---
+spring:
+  profiles: default
+server:
+  port: 8080
+---
+
+server:
+    context-path: /springboot
+    session-timeout: 30
+    tomcat.max-threads: 0
+    tomcat.uri-encoding: UTF-8
+
+spring:
+    messages:
+        basename= i18n.login
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/liuhao?characterEncoding=UTF-8
+        username: root
+        password: root
+    jpa:
+        database: MYSQL
+        show-sql: true
+        properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+        hibernate:
+            ddl-auto: update
+            naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+user:
+    id: 222
+    userName: sdjfskdl
+    password: 122112
