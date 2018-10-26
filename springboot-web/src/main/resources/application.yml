@@ -1,0 +1,41 @@
+spring:
+  profiles:
+    active: dev
+---
+spring:
+  profiles: dev
+server:
+  port: 8090
+---
+spring:
+  profiles: prod
+server:
+  port: 8091
+---
+spring:
+  profiles: default
+server:
+  port: 8089
+---
+
+server:
+    context-path: /springboot
+    session-timeout: 30
+    tomcat.max-threads: 0
+    tomcat.uri-encoding: UTF-8
+
+spring:
+    messages:
+        basename= i18n.login
+     mvc:
+        date-format: yyyy-MM-dd HH:mm:ss
+    dubbo:
+        application:
+        name: springboot-web
+        registry:
+            address: zookeeper://127.0.0.1:2181
+        protocol:
+            name: dubbo
+            port: 20880
+        scan:
+            com.liuhao.springboot.demo

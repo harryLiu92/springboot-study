@@ -1,6 +1,5 @@
 package com.liuhao.springboot.demo.custom;
 
-import com.liuhao.springboot.demo.controller.ExceptionHandlerController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.web.DefaultErrorAttributes;

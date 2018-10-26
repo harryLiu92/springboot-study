@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+       http://www.springframework.org/schema/beans/spring-beans.xsd  
+       http://code.alibabatech.com/schema/dubbo  
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 使用zookeeper注册中心暴露服务地址 本机伪集群-->
+    <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181" />
+
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="springboot-consumer" />
+
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:reference interface="com.liuhao.springboot.demo.facade.DepartmentFacade" id="departmentFacade" check="false" timeout="3000" />
+
+</beans>

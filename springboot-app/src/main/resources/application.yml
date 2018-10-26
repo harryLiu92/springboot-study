@@ -39,7 +39,5 @@ spring:
         hibernate:
             ddl-auto: update
             naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
-user:
-    id: 222
-    userName: sdjfskdl
-    password: 122112
+     mvc:
+        date-format: yyyy-MM-dd HH:mm:ss

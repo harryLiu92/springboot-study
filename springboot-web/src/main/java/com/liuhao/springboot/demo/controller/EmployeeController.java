@@ -1,9 +1,9 @@
 package com.liuhao.springboot.demo.controller;
 
-import com.liuhao.springboot.demo.model.Department;
-import com.liuhao.springboot.demo.model.Employee;
-import com.liuhao.springboot.demo.service.DepartmentService;
-import com.liuhao.springboot.demo.service.EmpService;
+import com.liuhao.springboot.demo.dto.DepartmentDTO;
+import com.liuhao.springboot.demo.dto.EmployeeDTO;
+import com.liuhao.springboot.demo.facade.DepartmentFacade;
+import com.liuhao.springboot.demo.facade.EmpFacade;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,13 +28,14 @@ public class EmployeeController {
     Logger logger = LoggerFactory.getLogger(EmployeeController.class);
 
     @Autowired
-    private EmpService empService;
+    private EmpFacade empFacade;
+
     @Autowired
-    private DepartmentService departmentService;
+    private DepartmentFacade departmentFacade;
 
     @GetMapping("emps")
     public String emps(Model model) {
-        List<Employee> employees = empService.queryAll();
+        List<EmployeeDTO> employees = empFacade.queryAll();
         model.addAttribute("emps", employees);
 
         return "emp/list";
@@ -43,17 +44,18 @@ public class EmployeeController {
     @GetMapping("emp")
     public String AddEmpPage(Model model) {
 
-        List<Department> departments = departmentService.queryAll();
+        List<DepartmentDTO> departments;
+        departments = departmentFacade.queryAll();
         model.addAttribute("depts", departments);
 
         return "emp/add";
     }
 
     @PostMapping("emp")
-    public String AddEmp(Employee employee) {
+    public String AddEmp(EmployeeDTO employee) {
         logger.info("AddEmp emp:{}", employee);
 
-        Integer result = empService.insert(employee);
+        Integer result = empFacade.insert(employee);
 
         logger.info("AddEmp emp:{},result:{}", employee, result);
 
@@ -62,20 +64,20 @@ public class EmployeeController {
 
     @GetMapping("emp/{id}")
     public String editEmp(@PathVariable("id") Integer id, Model model) {
-        Employee employee = empService.findById(id);
+        EmployeeDTO employee = empFacade.findById(id);
         model.addAttribute("emp", employee);
 
-        List<Department> departments = departmentService.queryAll();
+        List<DepartmentDTO> departments = departmentFacade.queryAll();
         model.addAttribute("depts", departments);
 
         return "emp/add";
     }
 
     @PutMapping("/emp")
-    public String updateEmployee(Employee employee) {
+    public String updateEmployee(EmployeeDTO employee) {
 
         logger.info("updateEmployee employee:{}", employee);
-        Integer result = empService.updateById(employee);
+        Integer result = empFacade.updateById(employee);
         logger.info("updateEmployee employee:{}, result:{}", employee, result);
 
         return "redirect:/emps";
@@ -84,7 +86,7 @@ public class EmployeeController {
     //员工删除
     @DeleteMapping("/emp/{id}")
     public String deleteEmployee(@PathVariable("id") Integer id){
-        empService.deleteById(id);
+        empFacade.deleteById(id);
         return "redirect:/emps";
     }
 

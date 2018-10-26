@@ -1,7 +1,7 @@
 package com.liuhao.springboot.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.liuhao.springboot.demo.model.User;
+import com.liuhao.springboot.demo.dto.UserDTO;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -26,7 +26,7 @@ public class FormatterController {
     @ResponseBody
     @RequestMapping(value = "/parseDate")
     public String parseDate() {
-        User user = new User();
+        UserDTO user = new UserDTO();
         user.setId(1L);
         user.setName("liuhao");
         user.setPassword("123456");

@@ -14,7 +14,6 @@ import org.springframework.context.annotation.ComponentScan;
 //@EnableAutoConfiguration
 @SpringBootApplication
 @ComponentScan(basePackages = "com.liuhao.springboot.demo")
-@MapperScan("com.liuhao.springboot.demo.repository")
 public class SpringBootMain {
     public static void main(String[] args) {
         SpringApplication.run(SpringBootMain.class, args);
