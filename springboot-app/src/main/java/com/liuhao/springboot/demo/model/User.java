@@ -1,11 +1,8 @@
 package com.liuhao.springboot.demo.model;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import groovy.transform.ToString;
-import org.apache.commons.lang3.builder.ToStringBuilder;
+import com.liuhao.springboot.demo.dto.BaseObject;
 
-import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -15,6 +12,7 @@ import java.util.Date;
  **/
 public class User extends BaseObject {
 
+    private static final long serialVersionUID = 2202278013931870229L;
     private long id;
 
     private String name;

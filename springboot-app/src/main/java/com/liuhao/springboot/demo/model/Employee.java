@@ -1,10 +1,13 @@
 package com.liuhao.springboot.demo.model;
 
+import com.liuhao.springboot.demo.dto.BaseObject;
+
 import java.util.Date;
 
 public class Employee extends BaseObject {
 
-	private Integer id;
+    private static final long serialVersionUID = 9029003669953587035L;
+    private Integer id;
     private String lastName;
 
     private String email;
